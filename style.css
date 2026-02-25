@@ -13,19 +13,12 @@ body {
   min-height: 100vh;
 }
 
-/* Add form label styling */
-.form-label {
-  display: block;
-  text-align: left;
-  margin-bottom: 15px;
-  color: #475569;
-  padding-left: 5px;
-  font-weight: 500;
-}
-
-/* Hero Section */
+/* ============================================
+   HERO
+   ============================================ */
 .hero {
-  background: linear-gradient(
+  background:
+    linear-gradient(
       135deg,
       rgba(0, 153, 219, 0.9) 0%,
       rgba(0, 104, 181, 0.9) 50%,
@@ -75,7 +68,9 @@ body {
   color: white;
 }
 
-/* Main container */
+/* ============================================
+   MAIN CONTAINER
+   ============================================ */
 .container {
   max-width: 700px;
   width: 90%;
@@ -87,7 +82,9 @@ body {
   text-align: center;
 }
 
-/* Check-in form */
+/* ============================================
+   CHECK-IN FORM
+   ============================================ */
 .check-in {
   width: 100%;
   margin: 0 auto;
@@ -97,13 +94,28 @@ body {
   text-align: center;
 }
 
+.form-label {
+  display: block;
+  text-align: left;
+  margin-bottom: 15px;
+  color: #475569;
+  padding-left: 5px;
+  font-weight: 500;
+}
+
 .form-group {
   display: flex;
   gap: 15px;
   width: 100%;
 }
 
-/* Form elements */
+.input-wrapper {
+  flex: 1;
+  display: flex;
+  gap: 10px;
+  min-width: 0;
+}
+
 input {
   flex: 1;
   padding: 16px 20px;
@@ -121,6 +133,18 @@ input {
 input:focus {
   border-color: #0071c5;
   box-shadow: 0 0 0 4px rgba(0, 113, 197, 0.15);
+}
+
+select {
+  padding: 16px;
+  border: 2px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  font-size: 17px;
+  font-weight: 500;
+  background: white;
+  color: #2c3e50;
+  cursor: pointer;
+  min-width: 140px;
 }
 
 button {
@@ -152,33 +176,17 @@ button:hover {
   white-space: nowrap;
 }
 
-/* Icon spacing */
 .fas {
   margin-right: 8px;
 }
-
 button .fas {
   font-size: 18px;
   margin-right: 10px;
 }
 
-.attendance-header i {
-  font-size: 22px;
-  margin-right: 8px;
-}
-
-/* Attendance section spacing */
-.attendance-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  margin-bottom: 15px;
-  font-size: 17px;
-  color: #64748b;
-}
-
-/* Attendance tracker styling */
+/* ============================================
+   ATTENDANCE TRACKER
+   ============================================ */
 .attendance-tracker {
   max-width: 700px;
   width: 90%;
@@ -192,16 +200,9 @@ button .fas {
   align-items: center;
   justify-content: center;
   gap: 6px;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   font-size: 17px;
   color: #64748b;
-}
-
-#attendeeCount {
-  color: #0071c5;
-  font-size: 24px;
-  font-weight: 700;
-  margin: 0 2px;
 }
 
 .attendance-header i {
@@ -210,55 +211,6 @@ button .fas {
   margin-right: 4px;
 }
 
-/* Max attendees text */
-.attendance-header span:last-child {
-  color: #64748b;
-  font-size: 17px;
-}
-
-/* Progress container - simplified */
-.progress-container {
-  width: 100%;
-  max-width: 500px;
-  height: 16px;
-  background-color: #e0e0e0;
-  border-radius: 10px;
-  overflow: hidden;
-  margin: 8px auto;
-  position: relative;
-}
-
-.progress-bar {
-  width: 0%;
-  height: 100%;
-  background-color: #0071c5;
-  background-image: linear-gradient(90deg, #0071c5, #00aeef);
-  border-radius: 10px;
-  transition: width 0.6s ease;
-}
-
-/* Adjust spacing between components */
-.container {
-  margin-top: 0;
-}
-
-/* Messages */
-#greeting {
-  font-weight: 500;
-  font-size: 18px;
-  padding: 16px 20px;
-  border-radius: 8px;
-  color: #333;
-  margin-bottom: 15px;
-  display: none;
-}
-
-.success-message {
-  background-color: #e8f4fc;
-  color: #003c71;
-}
-
-/* Counter */
 #attendeeCount {
   color: #0071c5;
   font-size: 24px;
@@ -266,7 +218,232 @@ button .fas {
   margin: 0 2px;
 }
 
-/* Footer */
+.goal-progress-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.goal-progress-card {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.goal-progress-card.goal-reached {
+  box-shadow:
+    0 0 0 4px rgba(0, 113, 197, 0.2),
+    0 0 24px rgba(0, 174, 239, 0.85);
+  animation: goal-glow 1.2s ease-in-out infinite alternate;
+}
+
+/* ============================================
+   PROGRESS BAR
+   ============================================ */
+.progress-container {
+  width: 100%;
+  height: 14px;
+  background-color: #e0e0e0;
+  overflow: hidden;
+  margin: 0;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 100%;
+  background-image: linear-gradient(90deg, #0071c5, #00aeef);
+  transition: width 0.6s ease;
+}
+
+/* ============================================
+   GOAL CELEBRATION
+   ============================================ */
+.goal-celebration {
+  display: none;
+  width: 100%;
+  padding: 28px 32px 24px;
+  background: linear-gradient(160deg, #001e3c 0%, #00356b 60%, #005096 100%);
+  border-bottom: 1px solid rgba(0, 174, 239, 0.2);
+  box-shadow: inset 0 1px 0 rgba(0, 199, 253, 0.2);
+  text-align: center;
+  animation: celebration-rise 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.goal-celebration .celebration-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 2rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #00c7fd;
+  margin-bottom: 10px;
+}
+
+.goal-celebration .celebration-team {
+  display: block;
+  font-size: 30px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.3px;
+  line-height: 1.2;
+}
+
+.goal-celebration .celebration-team .tie-line,
+.goal-celebration .celebration-team .tie-amp {
+  display: block;
+  text-align: center;
+}
+
+.goal-celebration .celebration-team .tie-amp {
+  margin: 4px 0;
+  color: #00c7fd;
+;
+}
+
+/* ============================================
+   GREETING
+   ============================================ */
+#greeting {
+  font-weight: 500;
+  font-size: 16px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  color: #003c71;
+  margin-bottom: 18px;
+  display: none;
+  border: 1px solid rgba(0, 113, 197, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 60, 116, 0.08);
+  animation: banner-pop 0.35s ease forwards;
+}
+
+.success-message {
+  background-color: #eef7ff;
+  color: #003c71;
+}
+
+/* ============================================
+   TEAM STATS
+   ============================================ */
+.team-stats {
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 2px solid #f1f5f9;
+}
+
+.team-stats h3 {
+  color: #64748b;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* The outer grid — 3 columns */
+.teams-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  align-items: start;
+}
+
+/* Each column: colored box on top, white roster block below, gap between */
+.team-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Colored count box — fully self-contained */
+.team-card-header {
+  padding: 15px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  text-align: center;
+}
+
+.team-card-header.water {
+  background-color: #e8f7fc;
+}
+.team-card-header.zero {
+  background-color: #ecfdf3;
+}
+.team-card-header.power {
+  background-color: #fff7ed;
+}
+
+.team-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: #475569;
+}
+
+.team-count {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+/* Roster block — sits BELOW the colored box, completely separate */
+.roster-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0 0;
+  background: white;
+  border-radius: 10px;
+}
+
+/* Single divider line — only when roster has names */
+.roster-list:not(:empty)::before {
+  content: "";
+  display: block;
+  height: 1px;
+  background-color: #cbd5e1;
+  margin: 0 4px 10px 4px;
+}
+
+.roster-list li {
+  font-size: 13px;
+  font-weight: 400;
+  color: #475569;
+  padding: 6px 8px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  animation: roster-fade 0.25s ease forwards;
+}
+
+.roster-list li:last-child {
+  border-bottom: none;
+}
+
+.roster-list li::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+#waterList li::before {
+  background-color: #0071c5;
+}
+#zeroList li::before {
+  background-color: #16a34a;
+}
+#powerList li::before {
+  background-color: #ea7c1a;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
 .footer {
   text-align: center;
   padding: 40px 20px;
@@ -284,71 +461,58 @@ button .fas {
   text-decoration: underline;
 }
 
-/* Input wrapper for name and team select */
-.input-wrapper {
-  flex: 1;
-  display: flex;
-  gap: 10px;
-  min-width: 0;
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes celebration-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
-select {
-  padding: 16px;
-  border: 2px solid rgba(0, 0, 0, 0.08);
-  border-radius: 12px;
-  font-size: 17px;
-  font-weight: 500;
-  background: white;
-  color: #2c3e50;
-  cursor: pointer;
-  min-width: 140px;
+@keyframes goal-glow {
+  from {
+    box-shadow:
+      0 0 0 3px rgba(0, 113, 197, 0.18),
+      0 0 12px rgba(0, 174, 239, 0.55);
+  }
+  to {
+    box-shadow:
+      0 0 0 5px rgba(0, 113, 197, 0.28),
+      0 0 28px rgba(0, 174, 239, 1);
+  }
 }
 
-/* Team Stats */
-.team-stats {
-  margin-top: 30px;
-  padding-top: 30px;
-  border-top: 2px solid #f1f5f9;
+@keyframes banner-pop {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.team-stats h3 {
-  color: #64748b;
-  font-size: 16px;
-  margin-bottom: 20px;
+@keyframes roster-fade {
+  from {
+    opacity: 0;
+    transform: translateX(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-.teams-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-}
-
-.team-card {
-  padding: 15px;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-/* Team card colors */
-.team-card.water {
-  background-color: #e8f7fc;
-}
-.team-card.zero {
-  background-color: #ecfdf3;
-}
-.team-card.power {
-  background-color: #fff7ed;
-}
-
-.team-name {
-  font-size: 15px;
-  font-weight: 500;
-  color: #475569;
-}
-
-/* Mobile responsive */
+/* ============================================
+   MOBILE
+   ============================================ */
 @media (max-width: 768px) {
   .hero {
     padding: 35px 20px;
@@ -356,29 +520,31 @@ select {
   .hero h1 {
     font-size: 38px;
   }
+
   .container {
-    padding: 32px;
+    padding: 20px;
     margin: 0 15px 30px;
   }
 
   .form-group {
     flex-direction: column;
   }
-
   input,
   button {
     width: 100%;
   }
-
   button {
     height: 50px;
   }
-
   .input-wrapper {
     flex-direction: column;
   }
 
   .teams-grid {
     grid-template-columns: 1fr;
+  }
+
+  .goal-celebration .celebration-team {
+    font-size: 24px;
   }
 }
