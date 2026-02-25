@@ -15,7 +15,7 @@ const rosterLists = {
 };
 
 //Track attendance
-let count = 45;
+let count = 0;
 const maxCount = 50; // Set a maximum count for attendees
 let lockedWinnerMessage = "";
 let lockedWinnerLabel = "Winner";
